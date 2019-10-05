@@ -43,14 +43,14 @@ function firstItem(arr, cb) {
 };
 // TEST 1 (inlined callback):
 const test1 = firstItem(items, item => `I love my ${item}!`);
-// console.log(test1);
+console.log(test1);
 
 function logExorbitantPrice(article) {
   return `this ${article} is worth a million dollars!`;
 };
 // TEST 2 (declaring callback before hand):
 const test2 = firstItem(items, logExorbitantPrice);
-// console.log(test2);
+console.log(test2);
 
 // TEST 3 
 function lastItem(arr, cb) {
@@ -58,7 +58,7 @@ function lastItem(arr, cb) {
   return cb(arr[3]);
 };
 const test3 = lastItem(items, item => `I love my ${item}!`);
-// console.log(test3);
+console.log(test3);
 
 // TEST 4
 function getLength(arr, cb) {
@@ -66,14 +66,14 @@ function getLength(arr, cb) {
   return cb(arr.length);
 }
 const test4 = getLength(items, arrLength => `This list is ${arrLength} items long!`);
-// console.log(test4);
+console.log(test4);
 
 function sumNums(x, y, cb) {
   // sumNums adds two numbers (x, y) and passes the result to the callback.
   return cb(x, y);
 }
 sumNums(2, 4, function(x, y) {
-  // console.log(x + y);
+  console.log(x + y);
 });
 
 function multiplyNums(x, y, cb) {
@@ -81,7 +81,7 @@ function multiplyNums(x, y, cb) {
   return cb(x, y);
 }
 multiplyNums(2, 4, function(x, y) {
-  // console.log(x * y)
+  console.log(x * y)
 });
 
 function contains(item, list, cb) {
