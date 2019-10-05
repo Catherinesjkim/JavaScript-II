@@ -72,11 +72,10 @@ let firstNamesAllCaps = runners.map((runner) => runner.first_name.toUpperCase())
 
 // ==== Challenge 3: Use .filter() ====
 // The large shirts won't be available for the event due to an ordering issue. We need a filtered version of the runners array, containing only those runners with large sized shirts so they can choose a different size. This will be an array of objects.
-let largeShirts = [];
 largeShirts = runners.filter((runner) => { 
   return runner.shirt_size === "L";
 });
-  // console.log(largeShirts);
+// console.log(largeShirts);
 
 // ==== Challenge 4: Use .reduce() ====
 // The donations need to be tallied up and reported for tax purposes. Add up all the donations and save the total into a ticketPriceTotal variable.
@@ -111,4 +110,4 @@ let premiumDonors = [];
 premiumDonor = runners.filter((donations) => {
   return donations.donation > 200;
 });
-  console.log(premiumDonor);
+  // console.log(premiumDonor);
