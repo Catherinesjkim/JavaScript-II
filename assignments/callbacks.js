@@ -1,92 +1,94 @@
-// Create a higher order function and invoke the callback function to test your work. You have been provided an example of a problem and a solution to see how this works with our items array. Study both the problem and the solution to figure out the rest of the problems.
-// const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
-// firstItem passes the first item of the given array to the callback function.
+//* Create a higher order function and invoke the callback function to test your work. You have been provided an example of a problem and a solution to see how this works with our items array. Study both the problem and the solution to figure out the rest of the problems.
+//* const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
+//* firstItem passes the first item of the given array to the callback function.
 /* 
-  // GIVEN THIS PROBLEM:
+  //* GIVEN THIS PROBLEM:
 
   function firstItem(arr, cb) {
-    // firstItem passes the first item of the given array to the callback function.
+    //* firstItem passes the first item of the given array to the callback function.
   }
 
-  // SOLUTION:
+  //* SOLUTION:
 
   function firstItem(arr, cb) {
     return cb(arr[0]);
   }
 
-  // NOTES ON THE SOLUTION:
+  //* NOTES ON THE SOLUTION:
 
-  // firstItem is a higher order function.
-  // It expects a callback (referred to as `cb`) as its second argument.
-  // To test our solution, we can use the given `items` array and a variety of callbacks.
-  // Note how callbacks can be declared separately, or inlined.
+  //* firstItem is a higher order function.
+  //* It expects a callback (referred to as `cb`) as its second argument.
+  //* To test our solution, we can use the given `items` array and a variety of callbacks.
+  //* Note how callbacks can be declared separately, or inlined.
 
-  // TEST 1 (inlined callback):
+  //* TEST 1 (inlined callback):
 
   const test1 = firstItem(items, item => `I love my ${item}!`);
-  console.log(test1); // "I love my Pencil!"
+  console.log(test1); //* "I love my Pencil!"
 
-  // TEST 2 (declaring callback before hand):
+  //* TEST 2 (declaring callback before hand):
 
   function logExorbitantPrice(article) {
     return `this ${article} is worth a million dollars!`;
   };
   const test2 = firstItem(items, logExorbitantPrice);
-  console.log(test2); // "this Pencil is worth a million dollars!"
+  console.log(test2); //* "this Pencil is worth a million dollars!"
 */
 
+// Done below
+
 const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
-// firstItem passes the first item of the given array to the callback function.
+//* firstItem passes the first item of the given array to the callback function.
 
 function firstItem(arr, cb) {
   return cb(arr[0]);
 };
-// TEST 1 (inlined callback):
+//* TEST 1 (inlined callback):
 const test1 = firstItem(items, item => `I love my ${item}!`);
-console.log(test1);
+//* console.log(test1);
 
 function logExorbitantPrice(article) {
   return `this ${article} is worth a million dollars!`;
 };
-// TEST 2 (declaring callback before hand):
+//* TEST 2 (declaring callback before hand):
 const test2 = firstItem(items, logExorbitantPrice);
-console.log(test2);
+//* console.log(test2);
 
-// TEST 3 
+//* TEST 3 
 function lastItem(arr, cb) {
-  // lastItem passes the last item of the array into the callback.
+  //* lastItem passes the last item of the array into the callback.
   return cb(arr[3]);
 };
 const test3 = lastItem(items, item => `I love my ${item}!`);
-console.log(test3);
+//* console.log(test3);
 
-// TEST 4
+//* TEST 4
 function getLength(arr, cb) {
-  // getLength passes the length of the array into the callback.
+  //* getLength passes the length of the array into the callback.
   return cb(arr.length);
 }
 const test4 = getLength(items, arrLength => `This list is ${arrLength} items long!`);
-console.log(test4);
+//* console.log(test4);
 
 function sumNums(x, y, cb) {
-  // sumNums adds two numbers (x, y) and passes the result to the callback.
+  //* sumNums adds two numbers (x, y) and passes the result to the callback.
   return cb(x, y);
 }
 sumNums(2, 4, function(x, y) {
-  console.log(x + y);
+  //* console.log(x + y);
 });
 
 function multiplyNums(x, y, cb) {
-  // multiplyNums multiplies two numbers and passes the result to the callback.
+  //* multiplyNums multiplies two numbers and passes the result to the callback.
   return cb(x, y);
 }
 multiplyNums(2, 4, function(x, y) {
-  console.log(x * y)
+  //* console.log(x * y)
 });
 
 function contains(item, list, cb) {
-  // contains checks if an item is present inside of the given array/list.
-  // Pass true to the callback if it is, otherwise pass false.
+  //* contains checks if an item is present inside of the given array/list.
+  //* Pass true to the callback if it is, otherwise pass false.
   if(list.includes(item)){
     return cb(true);
   } else {
@@ -94,12 +96,20 @@ function contains(item, list, cb) {
   }
 }
 contains('Pencil', items, function(result){
-  console.log(result);
+  //* console.log(result);
 })
-/* STRETCH PROBLEM */
 
-function removeDuplicates(array, cb) {
-  // removeDuplicates removes all duplicate values from the given array.
-  // Pass the duplicate free array to the callback function.
-  // Do not mutate the original array.
-}
+/* STRETCH PROBLEM */
+const duplicateItems = ['Pencil', 'Notebook', 'yo-yo', 'Gum', 'Pencil', 'Notebook', 'yo-yo', 'Gum']
+
+  function removeDuplicates(array, cb) {
+    //* removeDuplicates removes all duplicate values from the given array.
+    //* Pass the duplicate free array to the callback function.
+    //* Do not mutate the original array.
+    return cb(array);
+  }
+  let duplicates = removeDuplicates(duplicateItems, function(arr) {
+    return [...new Set(arr)];
+  })
+  console.log(duplicates);
+
