@@ -42,7 +42,9 @@ me = "Batman"
 //* ==== Challenge 3: Make `counterMaker` more sophisticated ====
 //* It should have a `limit` parameter. Any counters we make with `counterMaker`
 //* will refuse to go over the limit, and start back at 1.
-const counterMaker = () => {
+//? Did IFFE here as the last Stretch.
+
+const counterMaker = (function() {
     let count = 0;
     let limit = 10;
 
@@ -52,8 +54,8 @@ const counterMaker = () => {
     }
     let newCount = count;
     return newCount;
-};
-console.log(counterMaker());
+}());
+console.log(counterMaker);
 
 //* ==== Challenge 4: Create a counter function with an object that can increment and decrement ====
 //* Return an object that has two methods called `increment` and `decrement`.

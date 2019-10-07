@@ -72,32 +72,34 @@ const test4 = getLength(items, arrLength => `This list is ${arrLength} items lon
 
 function sumNums(x, y, cb) {
   //* sumNums adds two numbers (x, y) and passes the result to the callback.
+  //? Higher Order Function & arrow function
   return cb(x, y);
 }
-sumNums(2, 4, function(x, y) {
-  // console.log(x + y);
-});
+  let sum = (x, y) => x + y;
+  console.log(sumNums(3, 4, sum));
+
 
 function multiplyNums(x, y, cb) {
-  //* multiplyNums multiplies two numbers and passes the result to the callback.
+  //* multiplyNums multiplies two numbers and passes the result to the callback. 
+  //? Higher Order Function 
   return cb(x, y);
 }
-multiplyNums(2, 4, function(x, y) {
-  //* console.log(x * y)
+let multiply = (function(x, y) {
+  return (x * y)
 });
+// console.log(multiplyNums(3, 4, multiply));
+
 
 function contains(item, list, cb) {
+  return cb(item, list);}
   //* contains checks if an item is present inside of the given array/list.
   //* Pass true to the callback if it is, otherwise pass false.
-  if(list.includes(item)){
-    return cb(true);
-  } else {
-    return cb(false);
-  }
+  let conditional = function(item, list) { return list.includes(item)
 }
-contains('Pencil', items, function(result){
-  // console.log(result);
-})
+// console.log(contains('Pencil', items, conditional))
+
+
+
 
 /* STRETCH PROBLEM */
 const duplicateItems = ['Pencil', 'Notebook', 'yo-yo', 'Gum', 'Pencil', 'Notebook', 'yo-yo', 'Gum']
