@@ -9,7 +9,7 @@ function greetMe() {
   console.log("Hello, " + me + "!")
 }
 me = "Batman"
-greetMe()
+// greetMe()
 
 //* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
 
@@ -26,14 +26,14 @@ greetMe()
 //* myCounter(); //* 1
 //* myCounter(); //* 2
 
-const counterMaker = () => {
-  let count = 0;
-  return function () {
-    count++
-    return count;
-  }
-};
-const newCounter = counterMaker();
+// const counterMaker = () => {
+//   let count = 0;
+//   return function () {
+//     count++
+//     return count;
+//   }
+// };
+// const newCounter = counterMaker();
 // console.log(newCounter());
 // console.log(newCounter());
 // console.log(newCounter());
@@ -42,17 +42,18 @@ const newCounter = counterMaker();
 //* ==== Challenge 3: Make `counterMaker` more sophisticated ====
 //* It should have a `limit` parameter. Any counters we make with `counterMaker`
 //* will refuse to go over the limit, and start back at 1.
-// const counterMaker = () => {
-//   let count = 0;
-//   let limit = 10;
+const counterMaker = () => {
+    let count = 0;
+    let limit = 10;
 
-//     while(count <= limit) {
-//       console.log(count);
-//       count++;
-//     }
-//     let newCount = count;
-//     return newCount;
-// };
+    while(count < limit) {
+      console.log(count);
+      count++;
+    }
+    let newCount = count;
+    return newCount;
+};
+console.log(counterMaker());
 
 //* ==== Challenge 4: Create a counter function with an object that can increment and decrement ====
 //* Return an object that has two methods called `increment` and `decrement`.
@@ -66,7 +67,7 @@ const newCounter = counterMaker();
 //   console.log(lessNum);  
 //   console.log(lessNum);  
   
-//   // CLOSURE
+// CLOSURE
 //   return counterFactory = function() { 
 //     increment: num = num + 1;
 //     return num;

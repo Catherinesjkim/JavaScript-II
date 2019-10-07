@@ -75,7 +75,7 @@ function sumNums(x, y, cb) {
   return cb(x, y);
 }
 sumNums(2, 4, function(x, y) {
-  //* console.log(x + y);
+  // console.log(x + y);
 });
 
 function multiplyNums(x, y, cb) {
@@ -96,7 +96,7 @@ function contains(item, list, cb) {
   }
 }
 contains('Pencil', items, function(result){
-  //* console.log(result);
+  // console.log(result);
 })
 
 /* STRETCH PROBLEM */
